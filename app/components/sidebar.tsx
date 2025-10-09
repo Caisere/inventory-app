@@ -1,6 +1,6 @@
 'use client'
 
-import { UserButton } from "@stackframe/stack";
+import { UserButton, useUser } from "@stackframe/stack";
 import { BarChart3, Package, Plus, Settings } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,7 +13,13 @@ const navigation = [
 ];
 
 export default function Sidebar() {
+    const user = useUser()
+
     const pathname = usePathname()
+
+    if(!user) {
+        return null
+    }
 
 
     return (

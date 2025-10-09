@@ -1,7 +1,14 @@
+import { getCurrentUser } from "@/lib/auth";
 import Sidebar from "../components/sidebar";
 
 
-export default function RoutesLayout({children}:{children:React.ReactNode}) {
+export default async function RoutesLayout({children}:{children:React.ReactNode}) {
+    const user = await getCurrentUser()
+
+    if (!user) {
+        return null
+    }
+
     return (
         <div className="min-h-screen bg-gray-50">
             <Sidebar />
