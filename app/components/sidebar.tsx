@@ -14,6 +14,7 @@ const navigation = [
 
 export default function Sidebar() {
     const user = useUser()
+    console.log(user)
 
     const pathname = usePathname()
 
@@ -32,8 +33,8 @@ export default function Sidebar() {
             </div>
 
             <nav className="space-y-1">
-                <div className="text-sm font-semibold text-gray-400 uppercase">
-                    Iventory
+                <div className="text-sm font-semibold text-gray-400 uppercase mb-2">
+                    Inventory
                 </div>
                 {navigation.map((item, key) => {
                     const IconComponent = item.icon;
