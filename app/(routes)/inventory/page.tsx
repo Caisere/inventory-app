@@ -3,7 +3,8 @@ import InventoryLists from "@/app/components/inventorylists";
 import { Suspense } from "react";
 
 async function Inventory ({searchParams} : {searchParams: {filter: string}}) {
-    const filter = await searchParams?.filter || 'all'
+    const query = await searchParams;
+    const filter = query?.filter || 'all'
     return (
         <div>
             <div className="mb-8">

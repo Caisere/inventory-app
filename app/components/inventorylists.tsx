@@ -1,6 +1,8 @@
+import { deleteProduct } from "@/lib/actions";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { Trash2 } from "lucide-react";
+import { DeleteButton } from "./deletebutton";
 
 async function InventoryLists ({filter} : {filter: string}) {
 
@@ -45,16 +47,9 @@ async function InventoryLists ({filter} : {filter: string}) {
                             {product.lowStockAt || "-"}
                         </td>
                         <td className="px-6 py-4  text-sm text-gray-500">
-                            <form
-                                action={async (formData: FormData) => {
-                                    "use server";
-                                    // await deleteProduct(formData);
-                                }}
-                                >
-                                    <input type="hidden" name="id" value={product.id} />
-                                    <button className="text-red-600 hover:text-red-900 cursor-pointer">
-                                        <Trash2 className="w-4 h-4"  />
-                                    </button>
+                            <form action={deleteProduct}>
+                                <input type="hidden" name="id" value={product.id} />
+                                <DeleteButton />
                             </form>
                         </td>
                     </tr>

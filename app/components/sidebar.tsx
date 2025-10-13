@@ -14,7 +14,7 @@ const navigation = [
 
 export default function Sidebar() {
     const user = useUser()
-    console.log(user)
+    // console.log(user)
 
     const pathname = usePathname()
 
