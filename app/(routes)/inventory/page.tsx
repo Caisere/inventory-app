@@ -1,7 +1,9 @@
+import InventoryFilter from "@/app/components/inventoryfilter";
 import InventoryLists from "@/app/components/inventorylists";
 import { Suspense } from "react";
 
-function Inventory () {
+async function Inventory ({searchParams} : {searchParams: {filter: string}}) {
+    const filter = await searchParams?.filter || 'all'
     return (
         <div>
             <div className="mb-8">
@@ -33,6 +35,11 @@ function Inventory () {
                 </div>
             </div>
 
+            {/* Inventory Filter */}
+            <div className="mb-6 justify-items-end">
+                <InventoryFilter />
+            </div>
+
             <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
                 <table className="w-full">
                     <thead className="bg-gray-50">
@@ -58,8 +65,8 @@ function Inventory () {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        <Suspense fallback={<div>Loading inventory...</div>}>
-                            <InventoryLists />
+                        <Suspense fallback={<p>Loading inventory...</p>}>
+                            <InventoryLists filter={filter} />
                         </Suspense>
                     </tbody>
                 </table>

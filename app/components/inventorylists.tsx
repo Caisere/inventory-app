@@ -2,7 +2,9 @@ import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { Trash2 } from "lucide-react";
 
-async function InventoryLists () {
+async function InventoryLists ({filter} : {filter: string}) {
+
+    // console.log(filter)
 
     const user = await getCurrentUser()
     const userId = user.id
@@ -14,10 +16,18 @@ async function InventoryLists () {
         }
     })
 
+    let filteredProducts;
+
+    if (filter === 'all') filteredProducts = allProducts
+    if (filter === 'price-des') filteredProducts = allProducts?.sort((a, b) => Number(b.price) - Number(a.price))
+    if (filter === 'price-asc') filteredProducts = allProducts?.sort((a, b) => Number(a.price) - Number(b.price))
+    if (filter === 'quantity-des') filteredProducts = allProducts?.sort((a, b) => Number(b.quantity) - Number(a.quantity))
+    if (filter === 'quantity-asc') filteredProducts = allProducts?.sort((a, b) => Number(a.quantity) - Number(b.quantity))
+
     return (
         <>
             {
-                allProducts?.map(product => (
+                filteredProducts?.map(product => (
                     <tr key={product.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4 text-sm text-gray-500">
                             {product.name}
@@ -42,7 +52,7 @@ async function InventoryLists () {
                                 }}
                                 >
                                     <input type="hidden" name="id" value={product.id} />
-                                    <button className="text-red-600 hover:text-red-900">
+                                    <button className="text-red-600 hover:text-red-900 cursor-pointer">
                                         <Trash2 className="w-4 h-4"  />
                                     </button>
                             </form>
