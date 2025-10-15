@@ -17,3 +17,7 @@ export async function deleteProduct(formData:FormData) {
         }
     })
 }
+
+export async function createProduct () {
+
+}

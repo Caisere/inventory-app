@@ -66,7 +66,13 @@ async function Inventory ({searchParams} : {searchParams: {filter: string}}) {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        <Suspense fallback={<p>Loading inventory...</p>}>
+                        <Suspense fallback={
+                            <tr>
+                                <td colSpan={6} className="text-center py-8">
+                                    Loading inventory...
+                                </td>
+                            </tr>
+                        }>
                             <InventoryLists filter={filter} />
                         </Suspense>
                     </tbody>

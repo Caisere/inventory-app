@@ -1,7 +1,6 @@
 import { deleteProduct } from "@/lib/actions";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { Trash2 } from "lucide-react";
 import { DeleteButton } from "./deletebutton";
 
 async function InventoryLists ({filter} : {filter: string}) {
