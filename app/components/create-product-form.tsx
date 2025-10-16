@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createProduct } from "@/lib/actions";
+import { FormActionBtn } from "./form-action-btn";
 
 function CreateProductForm() {
     return (
@@ -16,7 +17,7 @@ function CreateProductForm() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent text-black"
                     placeholder="Enter Product Name"
                 />
             </div>
@@ -35,7 +36,7 @@ function CreateProductForm() {
                         name="quantity"
                         min="0"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent text-black"
                         placeholder="0"
                     />
                 </div>
@@ -53,7 +54,7 @@ function CreateProductForm() {
                         step="0.01"
                         min="0"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent text-black"
                         placeholder="0.0"
                     />
                 </div>
@@ -70,7 +71,7 @@ function CreateProductForm() {
                     type="text"
                     id="sku"
                     name="sku"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent text-black"
                     placeholder="Enter SKU"
                 />
             </div>
@@ -87,18 +88,15 @@ function CreateProductForm() {
                     id="lowStockAt"
                     name="lowStockAt"
                     min="0"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-transparent text-black"
                     placeholder="Enter low stock threshold"
                 />
             </div>
 
             <div className="flex gap-5">
-                <button
-                    type="submit"
-                    className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-                >
+                <FormActionBtn action='addProduct'>
                     Add Product
-                </button>
+                </FormActionBtn>
                 <Link
                     href="/inventory"
                     className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300"

@@ -18,6 +18,6 @@ export async function deleteProduct(formData:FormData) {
     })
 }
 
-export async function createProduct () {
-
+export async function createProduct (formData:FormData) {
+    console.log(formData)
 }

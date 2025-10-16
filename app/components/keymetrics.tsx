@@ -1,7 +1,7 @@
 import { getCurrentUser } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import { TrendingUp } from "lucide-react";
-import ProductsChart from "./productschart";
+import ProductsChart from "./products-chart";
 
 async function KeyMetrics () {
     

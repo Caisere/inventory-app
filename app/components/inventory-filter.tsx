@@ -23,7 +23,7 @@ function InventoryFilter () {
 
 
     return (
-        <select value={inventoryFilter} onChange={(e) => setInventoryFilter(e.target.value)}  className="border border-gray-300 rounded-lg px-4 py-2 focus:border-transparent">
+        <select value={inventoryFilter} onChange={(e) => setInventoryFilter(e.target.value)}  className="border border-gray-300 rounded-lg px-4 py-2 focus:border-transparent text-black">
             <option value="all">All Products</option>
             <option value='quantity-asc'>Quantity Asc</option>
             <option value='quantity-des'>Quantity Des</option>

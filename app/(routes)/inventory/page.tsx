@@ -1,5 +1,5 @@
-import InventoryFilter from "@/app/components/inventoryfilter";
-import InventoryLists from "@/app/components/inventorylists";
+import InventoryFilter from "@/app/components/inventory-filter";
+import InventoryLists from "@/app/components/inventory-lists";
 import { Suspense } from "react";
 
 async function Inventory ({searchParams} : {searchParams: {filter: string}}) {

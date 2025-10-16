@@ -1,7 +1,8 @@
 import { deleteProduct } from "@/lib/actions";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { DeleteButton } from "./deletebutton";
+import { FormActionBtn } from "./form-action-btn";
+import { Trash2 } from "lucide-react";
 
 async function InventoryLists ({filter} : {filter: string}) {
 
@@ -48,7 +49,9 @@ async function InventoryLists ({filter} : {filter: string}) {
                         <td className="px-6 py-4  text-sm text-gray-500">
                             <form action={deleteProduct}>
                                 <input type="hidden" name="id" value={product.id} />
-                                <DeleteButton />
+                                <FormActionBtn action='delete'>
+                                    <Trash2 className="h-4 w-4" />
+                                </FormActionBtn>
                             </form>
                         </td>
                     </tr>
